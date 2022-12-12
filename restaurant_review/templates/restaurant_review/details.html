@@ -14,7 +14,7 @@
     <h1>{{ restaurant.name }}</h1>
 
     <div class="row">
-        <div class="col-md-2 fw-bold">Street address2:</div>
+        <div class="col-md-2 fw-bold">Structure file:</div>
         <div class="col">{{ restaurant.street_address }}</div>
     </div>
     <div class="row">
@@ -22,44 +22,44 @@
         <div class="col">{{ restaurant.description }}</div>                
     </div>
     <div class="row">
-        <div class="col-md-2 fw-bold">Rating:</div>
+        <div class="col-md-2 fw-bold">Comments:</div>
         <div class="col"></div>                
     </div>
 
-    <h4 class="mt-5">Reviews</h4>
-
-    <p>
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addReviewModal">
-            Add new review
-        </button>
-        <!-- <a href="{% url 'create_restaurant' %}" class="btn btn-success px-4 gap-3">Add new review</a> -->
-    </p>
-
-    <!-- Button trigger modal -->
-    {% if restaurant.review_set %}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>User</th>
-                    <th>Rating</th>
-                    <th>Review</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for review in restaurant.review_set.all %}
-                    <tr>
-                        <td>{{ review.review_date }}</td>
-                        <td>{{ review.user_name }}</td>
-                        <td>{{ review.rating }}</td>
-                        <td>{{ review.review_text }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>No reviews of this restaurant yet.</p>
-    {% endif %}
+{#    <h4 class="mt-5">Reviews</h4>#}
+{##}
+{#    <p>#}
+{#        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addReviewModal">#}
+{#            Add new review#}
+{#        </button>#}
+{#        <!-- <a href="{% url 'create_restaurant' %}" class="btn btn-success px-4 gap-3">Add new review</a> -->#}
+{#    </p>#}
+{##}
+{#    <!-- Button trigger modal -->#}
+{#    {% if restaurant.review_set %}#}
+{#        <table class="table">#}
+{#            <thead>#}
+{#                <tr>#}
+{#                    <th>Date</th>#}
+{#                    <th>User</th>#}
+{#                    <th>Rating</th>#}
+{#                    <th>Review</th>#}
+{#                </tr>#}
+{#            </thead>#}
+{#            <tbody>#}
+{#                {% for review in restaurant.review_set.all %}#}
+{#                    <tr>#}
+{#                        <td>{{ review.review_date }}</td>#}
+{#                        <td>{{ review.user_name }}</td>#}
+{#                        <td>{{ review.rating }}</td>#}
+{#                        <td>{{ review.review_text }}</td>#}
+{#                    </tr>#}
+{#                {% endfor %}#}
+{#            </tbody>#}
+{#        </table>#}
+{#    {% else %}#}
+{#        <p>No reviews of this restaurant yet.</p>#}
+{#    {% endif %}#}
 
     <!-- Modal -->
     <div class="modal fade" id="addReviewModal" tabindex="-1" aria-labelledby="addReviewModalLabel" aria-hidden="true">
