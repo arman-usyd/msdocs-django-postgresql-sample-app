@@ -14,10 +14,13 @@ def index(request):
 
     restaurants = Restaurant.objects.annotate(avg_rating=Avg('review__rating')).annotate(review_count=Count('review'))
 
-    import pyvista as pv
-    sphere = pv.Sphere()
-    point, cell = sphere.ray_trace([0, 0, 0], [1, 0, 0], first_point=True)
-    var_to_show = f'Intersected at {point[0]:.3f} {point[1]:.3f} {point[2]:.3f}'
+    # import pyvista as pv
+
+    var_to_show = "_"
+
+    # sphere = pv.Sphere()
+    # point, cell = sphere.ray_trace([0, 0, 0], [1, 0, 0], first_point=True)
+    # var_to_show = f'Intersected at {point[0]:.3f} {point[1]:.3f} {point[2]:.3f}'
 
     # points, rays, cells = sphere.multi_ray_trace([[0, 0, 0]] * 3, [[1, 0, 0], [0, 1, 0], [0, 0, 1]], first_point=True)
     # string = ", ".join([f"({point[0]:.3f}, {point[1]:.3f}, {point[2]:.3f})" for point in points])
