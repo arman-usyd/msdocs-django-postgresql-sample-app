@@ -13,7 +13,8 @@ def index(request):
     print('Request for index page received')
 
     restaurants = Restaurant.objects.annotate(avg_rating=Avg('review__rating')).annotate(review_count=Count('review'))
-    return render(request, 'restaurant_review/index.html', {'restaurants': restaurants })
+    var_to_show = 'temp txt'
+    return render(request, 'restaurant_review/index.html', {'restaurants': restaurants, 'var_to_show': var_to_show })
 
 
 def details(request, id):
