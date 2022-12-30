@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Avg, Count
 from django.urls import reverse
 from django.utils import timezone
+import pyvista as pv
 
 from restaurant_review.models import Restaurant, Review
 
@@ -14,7 +15,6 @@ def index(request):
 
     restaurants = Restaurant.objects.annotate(avg_rating=Avg('review__rating')).annotate(review_count=Count('review'))
 
-    # import pyvista as pv
 
     var_to_show = "_2"
 
